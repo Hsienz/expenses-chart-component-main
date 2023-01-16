@@ -1,6 +1,5 @@
-import Chart from "../Chart/Chart";
 import Balance from "../Balance/Balance";
-import { useEffect } from "react";
+import Statistic from "../Statistic/Statistic";
 const Card = () => {
 	return (
 		<div className="font-sans text-lg w-full p-4 font-normal">
@@ -8,7 +7,7 @@ const Card = () => {
 				<Balance />
 			</div>
 			<div className="mt-4">
-				<Chart />
+				<Statistic />
 			</div>
 		</div>
 	);

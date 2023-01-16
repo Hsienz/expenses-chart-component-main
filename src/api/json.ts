@@ -1,4 +1,5 @@
 const importJsonPromise = async () => {
-    return fetch('/src/data/data.json').then( res=>res.json() )
+    let json = await fetch('/src/data/data.json')
+    return await json.json()
 }
 export {importJsonPromise}
