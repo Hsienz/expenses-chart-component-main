@@ -14,7 +14,6 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const options = {
 	responsive: true,
-	maintainAspectRatio: false,
 	scales: {
 		y: {
 			ticks: {
@@ -65,9 +64,7 @@ const data: any = {
 };
 const Chart = () => {
 	return (
-		<div>
 			<Bar data={data} options={options} />
-		</div>
 	);
 };
 

@@ -6,9 +6,8 @@ const Statistic = () => {
 				Spending - Last 7 days
 			</h1>
 
-			<div className="mt-8 ">
-				<Chart />
-			</div>
+			<div className="mt-8"></div>
+			<Chart />
 
 			<hr className="border-t-2 border-Cream my-7" />
 			<div className="flex justify-between">
