@@ -5,6 +5,8 @@ import {
 	BarElement,
 	Tooltip,
 } from "chart.js";
+import json from "../../data/data.json";
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { importJsonPromise } from "../../api/json";
 
@@ -12,7 +14,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const options = {
 	responsive: true,
-	// maintainAspectRatio: false,
+	maintainAspectRatio: false,
 	scales: {
 		y: {
 			ticks: {
@@ -27,13 +29,13 @@ const options = {
 			},
 		},
 		x: {
-            ticks: {
-                color: "hsl(28,10%,53%)",
-                font: {
-                    size: 14,
-                    family: "'DM Sans', sans-serif",
-                }
-            },
+			ticks: {
+				color: "hsl(28,10%,53%)",
+				font: {
+					size: 14,
+					family: "'DM Sans', sans-serif",
+				},
+			},
 			grid: {
 				display: false,
 				drawOnChartArea: false,
@@ -45,31 +47,22 @@ const options = {
 	},
 };
 
-const json = await importJsonPromise();
-
-const labels = json.map((x: { day: string; amount: string }) => x.day);
-
-const amountArr = json.map((x: { day: string; amount: string }) =>
-	parseFloat(x.amount)
-);
-console.log(amountArr);
-
-const maxAmount = Math.max(...amountArr);
+const maxAmount = Math.max(...json.map((x) => x.amount));
 
 const data: any = {
-	labels,
+	labels: json.map((x) => x.day),
 	datasets: [
 		{
-			backgroundColor: amountArr.map((x: number) => {
-				console.log(x, maxAmount);
-				return x == maxAmount ? "hsl(186,24%,60%)" : "hsl(10,79%,65%)";
+			backgroundColor: json.map((x) => {
+				return x.amount == maxAmount
+					? "hsl(186,34%,60%)"
+					: "hsl(10,79%,65%)";
 			}),
-			data: amountArr,
+			data: json.map((x) => x.amount),
 			borderRadius: 5,
 		},
 	],
 };
-
 const Chart = () => {
 	return (
 		<div>

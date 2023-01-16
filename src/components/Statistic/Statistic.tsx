@@ -10,7 +10,7 @@ const Statistic = () => {
 				<Chart />
 			</div>
 
-			<hr className="border-t-2 border-Cream my-10" />
+			<hr className="border-t-2 border-Cream my-7" />
 			<div className="flex justify-between">
 				<div className="flex flex-col">
 					<p className="text-Medium_brown">Total this month</p>
@@ -18,7 +18,7 @@ const Statistic = () => {
 						$478.33
 					</p>
 				</div>
-				<div className="flex flex-col text-right">
+				<div className="flex flex-col text-right self-end">
 					<p className="text-Dark_brown font-bold">+2.4%</p>
 					<p className="text-Medium_brown">from last month</p>
 				</div>

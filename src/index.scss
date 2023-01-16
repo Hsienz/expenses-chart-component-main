@@ -6,4 +6,7 @@
     .cardComponent {
         @apply rounded-xl p-6;
     }
+    canvas {
+        @apply w-full;
+    }
 }
